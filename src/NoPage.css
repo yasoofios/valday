@@ -1,0 +1,89 @@
+.font {
+font-family: 'Pacifico', cursive;
+  font-size: 28px;
+  color: maroon;
+}
+.content2 {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 2px;          /* 👈 controls spacing */
+
+
+}
+p {
+  user-select: none;
+  caret-color: transparent;
+}
+
+
+.coupon {
+    background-image: url("assets/ticket.png");
+    height: 450px;
+    width: 700px;
+    
+  background-size: contain;
+
+   
+  background-repeat: no-repeat;
+
+}
+
+
+
+
+.sparkle-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fff; /* or a soft pink, etc */
+}
+
+
+/* sparkle layers */
+.sparkle-page::before,
+.sparkle-page::after {
+  content: "";
+  position: absolute;
+  inset: -200px;
+  z-index: 1;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 105, 180, 0.95) 0 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(255, 182, 193, 0.75) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(199, 21, 133, 0.55) 0 1px, transparent 2px);
+
+  background-size: 120px 120px, 180px 180px, 250px 250px;
+  background-position: 0 0, 40px 60px, 80px 20px;
+
+  opacity: 0.7;
+  animation: drift 16s linear infinite, twinkle 2.8s ease-in-out infinite;
+}
+.sparkle-page::after {
+  opacity: 0.45;
+  filter: blur(0.2px);
+  animation: drift2 22s linear infinite, twinkle 3.6s ease-in-out infinite;
+}
+
+
+
+@keyframes drift {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-160px, -220px, 0); }
+}
+
+@keyframes drift2 {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(220px, -160px, 0); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 0.85; }
+}

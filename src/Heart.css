@@ -1,0 +1,82 @@
+.heartback{
+    background-image: url("assets/envelope.avif");
+    
+   
+
+    width: 500px;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+   
+    background-repeat: no-repeat;
+
+   
+    padding: 20px;
+}
+p {
+  user-select: none;
+  caret-color: transparent;
+}
+
+div {
+  caret-color: transparent;
+}
+
+.sparkle-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #fff; /* or a soft pink, etc */
+}
+
+/* keep your existing centered layout */
+.content {
+  position: relative;
+  z-index: 2; /* above sparkles */
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/* sparkle layers */
+.sparkle-page::before,
+.sparkle-page::after {
+  content: "";
+  position: absolute;
+  inset: -200px;
+  z-index: 1;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(circle, rgba(255, 105, 180, 0.95) 0 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(255, 182, 193, 0.75) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(199, 21, 133, 0.55) 0 1px, transparent 2px);
+
+  background-size: 120px 120px, 180px 180px, 250px 250px;
+  background-position: 0 0, 40px 60px, 80px 20px;
+
+  opacity: 0.7;
+  animation: drift 16s linear infinite, twinkle 2.8s ease-in-out infinite;
+}
+.sparkle-page::after {
+  opacity: 0.45;
+  filter: blur(0.2px);
+  animation: drift2 22s linear infinite, twinkle 3.6s ease-in-out infinite;
+}
+
+@keyframes drift {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-160px, -220px, 0); }
+}
+
+@keyframes drift2 {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(220px, -160px, 0); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 0.85; }
+}

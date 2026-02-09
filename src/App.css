@@ -2,14 +2,20 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.spinny {
+  font-size: 50px;
   pointer-events: none;
+}
+.button {
+  border-radius: 20px;
+  width: 200px;
+  left: 0;
+ 
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .spinny {
+    animation: App-logo-spin infinite 2s linear;
   }
 }
 
